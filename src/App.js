@@ -9,12 +9,14 @@ export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            fullName: "Ben Hassine Ghaith",
-            bio: "Am 27 years old am a web developer",
-            imgSrc: image,
-            profession: "web developer",
-            show: false,
+            person: {
+                fullName: "Ben Hassine Ghaith",
+                bio: "Am 27 years old am a web developer",
+                imgSrc: image,
+                profession: "web developer",
+            },
 
+            show: false,
             date: new Date(),
         };
     }
@@ -35,10 +37,10 @@ export default class App extends Component {
                 <h1>{this.state.date.toLocaleTimeString()}</h1>
                 {this.state.show ? (
                     <Child
-                        fullName={this.state.fullName}
-                        bio={this.state.bio}
-                        imgSrc={this.state.imgSrc}
-                        profession={this.state.profession}
+                        fullName={this.state.person.fullName}
+                        bio={this.state.person.bio}
+                        imgSrc={this.state.person.imgSrc}
+                        profession={this.state.person.profession}
                     />
                 ) : null}
             </div>

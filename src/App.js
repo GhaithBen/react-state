@@ -14,16 +14,15 @@ export default class App extends Component {
             imgSrc: image,
             profession: "web developer",
             show: false,
-            intervall: null,
-            timer: 0,
-        };
-        this.setState({
-            intervall: setInterval(() => {
-                this.setState({ timer: this.state.timer + 1 });
-            }, 1000),
-        });
-    }
 
+            date: new Date(),
+        };
+    }
+    componentDidMount() {
+        this.intervall = setInterval(() => {
+            this.setState({ date: new Date() });
+        }, 1000);
+    }
     render() {
         return (
             <div className="App">
@@ -33,6 +32,7 @@ export default class App extends Component {
                 >
                     {this.state.show ? "Hide" : "Show"}
                 </Button>
+                <h1>{this.state.date.toLocaleTimeString()}</h1>
                 {this.state.show ? (
                     <Child
                         fullName={this.state.fullName}
@@ -41,7 +41,6 @@ export default class App extends Component {
                         profession={this.state.profession}
                     />
                 ) : null}
-                <h1>{this.state.timer}</h1>
             </div>
         );
     }

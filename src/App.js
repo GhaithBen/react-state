@@ -4,7 +4,7 @@ import Child from "./Compoenent/Child";
 import image from "./image.jpg";
 import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-//helloo ghaith i have made some changes
+
 export default class App extends Component {
     constructor(props) {
         super(props);
